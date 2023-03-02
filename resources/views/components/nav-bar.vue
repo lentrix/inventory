@@ -7,9 +7,9 @@
         </div>
         <nav class="main-nav">
             <Link class="main-link" href="/">Home</Link>
-            <Link class="main-link" href="/users">Users</Link>
-            <Link class="main-link" href="/offices">Offices</Link>
-            <Link class="main-link" href="/items">Items</Link>
+            <Link v-if="user" class="main-link" href="/users">Users</Link>
+            <Link v-if="user" class="main-link" href="/offices">Offices</Link>
+            <Link v-if="user" class="main-link" href="/items">Items</Link>
         </nav>
         <div class="flex">
             <Link v-if="!user" class="py-4 text-green-100 font-semibold hover:bg-[#00250c] duration-300 px-2" href="/login">Log In</Link>
