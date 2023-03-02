@@ -17,12 +17,16 @@
 
 <script setup>
 
-import { Link } from '@inertiajs/inertia-vue3'
+import { Link, usePage } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
     topics:Array
 })
 
 const message = "This is a vue page."
+
+const user = usePage().props.auth
+
+console.log(user)
 
 </script>

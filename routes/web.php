@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Item;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -17,16 +18,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return inertia('Home',[
-        'topics'=>[
-            'Laravel', 'Inertia', 'VueJS'
-        ]
-    ]);
+Route::get('/', [SiteController::class, 'home']);
+
+Route::get('/login', [SiteController::class, 'loginForm'])->name('login');
+Route::post('/login',[SiteController::class, 'login']);
+
+Route::group(['middleware'=>'auth'], function(){
+
+    Route::get('/logout', [SiteController::class, 'logout']);
+
+
+    Route::get('/items', [ItemController::class,'index']);
+    Route::get('/users', [UserController::class,'index']);
+    Route::get('/offices', [OfficeController::class,'index']);
 });
 
-
-Route::get('/items', [ItemController::class,'index']);
-Route::get('/users', [UserController::class,'index']);
-Route::get('/offices', [OfficeController::class,'index']);
 
