@@ -13,7 +13,7 @@
         </nav>
         <div class="flex">
             <Link v-if="!user" class="py-4 text-green-100 font-semibold hover:bg-[#00250c] duration-300 px-2" href="/login">Log In</Link>
-            <Link v-if="user" class="py-4 text-green-100 font-semibold hover:bg-[#00250c] duration-300 px-2" href="/logout">Log Out</Link>
+            <Link v-if="user" class="py-4 text-green-100 font-semibold hover:bg-[#00250c] duration-300 px-2" href="/logout" method="post" as="button">Log Out</Link>
         </div>
     </div>
 </section>

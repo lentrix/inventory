@@ -25,7 +25,7 @@ Route::post('/login',[SiteController::class, 'login']);
 
 Route::group(['middleware'=>'auth'], function(){
 
-    Route::get('/logout', [SiteController::class, 'logout']);
+    Route::post('/logout', [SiteController::class, 'logout']);
 
 
     Route::get('/items', [ItemController::class,'index']);
