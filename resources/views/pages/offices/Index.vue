@@ -1,6 +1,11 @@
 <template layout>
 
-    <h1>List of Offices</h1>
+
+    <div class="flex justify-between">
+        <h1>List of Offices</h1>
+
+    </div>
+
     <hr>
 
     <table class="table">

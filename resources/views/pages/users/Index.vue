@@ -1,6 +1,10 @@
 <template layout>
 
-    <h1>List of Users</h1>
+    <div class="flex justify-between">
+        <h1>List of Users</h1>
+        <Link href="/users/create" class="btn-primary">Create User</Link>
+    </div>
+
     <hr>
 
     <table class="table">
@@ -25,6 +29,7 @@
 </template>
 
 <script setup>
+import {Link} from '@inertiajs/inertia-vue3'
 
 defineProps({
     'users': Array

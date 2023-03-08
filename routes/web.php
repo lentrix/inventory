@@ -29,7 +29,12 @@ Route::group(['middleware'=>'auth'], function(){
 
 
     Route::get('/items', [ItemController::class,'index']);
+
+    Route::get('/users/create',[UserController::class,'create']);
+    Route::post('/users',[UserController::class, 'store']);
     Route::get('/users', [UserController::class,'index']);
+
+    Route::get('/offices/create', [OfficeController::class,'create']);
     Route::get('/offices', [OfficeController::class,'index']);
 });
 

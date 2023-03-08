@@ -9,6 +9,10 @@ class OfficeController extends Controller
 {
     public function index() {
         $offices = Office::orderBy('name')->with('user')->get();
-        return inertia('Offices',compact('offices'));
+        return inertia('offices/Index',compact('offices'));
+    }
+
+    public function create() {
+        return inertia('offices/Create');
     }
 }
