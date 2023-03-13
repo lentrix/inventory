@@ -18,7 +18,9 @@
             </thead>
             <tbody>
                 <tr v-for="user of users" :key="user.id">
-                    <td>{{ ('00000000' + user.id).slice(-8) }}</td>
+                    <td>
+                        <Link :href=" '/users/edit/' + user.id ">{{ ('00000000' + user.id).slice(-8) }}</Link>
+                    </td>
                     <td>{{ user.fullname }}</td>
                     <td>{{ user.designation }}</td>
                     <td>{{ user.department }}</td>
@@ -78,7 +80,7 @@
 <script setup>
 // import {Link} from '@inertiajs/inertia-vue3'
 import { ref } from 'vue'
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm, Link } from '@inertiajs/inertia-vue3'
 
 let toggle = ref('w-[50px]')
 let isHidden = ref('hidden')

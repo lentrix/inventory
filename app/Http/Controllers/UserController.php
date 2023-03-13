@@ -36,4 +36,23 @@ class UserController extends Controller
 
         return redirect('/users')->with('Info','A new user has been created.');
     }
+
+    public function edit(User $user) {
+        return inertia('users.Edit', [
+            'user' => $user
+        ]);
+    }
+
+    public function update(Request $request, User $user) {
+        $fields = $request->validate([
+            'username'=>'required|unique:users,username',
+            'fullname'=>'required',
+            'designation'=>'required',
+            'department'=>'required'
+        ]);
+
+        $user->update($fields);
+
+        return redirect('/users');
+    }
 }
