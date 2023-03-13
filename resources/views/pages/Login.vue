@@ -17,7 +17,7 @@
                     <div class="text-sm text-red-500 italic" v-if="form.errors.password">{{ form.errors.password }}</div>
                 </div>
                 <div class="mb-4">
-                    <button type="submit" class="btn-primary">
+                    <button type="submit" class="btn primary">
                         Log In
                     </button>
                 </div>

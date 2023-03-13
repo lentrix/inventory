@@ -50,10 +50,23 @@ h1 {
     @apply text-4xl font-medium
 }
 
+label {
+    @apply text-gray-600 italic text-sm
+}
+
 .field {
     @apply rounded p-1 border border-gray-300 w-full
 }
-
-.btn-primary {
-    @apply py-2 rounded bg-green-700 px-4 hover:bg-green-600 text-white disabled:bg-gray-300
+.btn {
+    @apply py-2 rounded px-4 text-white disabled:bg-gray-300
 }
+
+button.primary {
+    @apply bg-green-700 hover:bg-green-600
+}
+
+button.secondary {
+    @apply bg-gray-700 hover:bg-gray-600
+}
+
+
