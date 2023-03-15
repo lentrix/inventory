@@ -5,12 +5,12 @@
 
     <div class="w-[500px] shadow p-4 ">
         <form @submit.prevent="submit">
-            <div clas="mb-3">
+            <div class="mb-3">
                 <label for="username">User Name</label>
                 <input v-model="form.username" type="text" class="field" id="username">
                 <div class="text-sm text-red-500 italic" v-if="form.errors.username">{{ form.errors.username }}</div>
             </div>
-            <div clas="mb-3">
+            <div class="mb-3">
                 <label for="password">Password</label>
                 <input v-model="form.password" type="password" class="field" id="password">
                 <div class="text-sm text-red-500 italic" v-if="form.errors.password">{{ form.errors.password }}</div>

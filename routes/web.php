@@ -36,7 +36,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/users',[UserController::class, 'store']);
     Route::get('/users', [UserController::class,'index']);
 
-    Route::get('/offices/create', [OfficeController::class,'create']);
+    Route::put('/offices/{office}',[OfficeController::class, 'update']);
+    Route::post('/offices',[OfficeController::class, 'store']);
     Route::get('/offices', [OfficeController::class,'index']);
 });
 
