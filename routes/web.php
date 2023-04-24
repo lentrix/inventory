@@ -37,6 +37,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/users', [UserController::class,'index']);
 
     Route::put('/offices/{office}',[OfficeController::class, 'update']);
+    Route::delete('/offices/{office}',[OfficeController::class, 'destroy']);
     Route::post('/offices',[OfficeController::class, 'store']);
     Route::get('/offices', [OfficeController::class,'index']);
 });

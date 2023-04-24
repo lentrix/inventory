@@ -43,4 +43,14 @@ class OfficeController extends Controller
 
         return redirect('/offices');
     }
+
+    public function destroy(Office $office) {
+        if( ($c = $office->items->count()) > 0 ) {
+            return back()->withErrors(['GeneralErrors'=>"You cannot delete the office $office->name because it has $c items."]);
+        }
+
+        $office->delete();
+
+        return back();
+    }
 }

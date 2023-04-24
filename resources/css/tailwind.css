@@ -70,3 +70,24 @@ button.secondary {
 }
 
 
+.overlay {
+    z-index: 100;
+    background-color: #222;
+    opacity: 0.85;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @apply min-h-full min-w-full
+}
+
+.dialog-wrapper {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @apply min-h-full min-w-full flex justify-center items-center
+}
+
+.dialog-wrapper .dialog {
+    @apply bg-green-100 p-4 rounded-lg min-w-[600px]
+}

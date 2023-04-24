@@ -1,5 +1,14 @@
 <template layout>
 
+    <ConfirmDialog v-if="showConfirm"
+                title="Delete Office?"
+                message="Are you sure about deleting this office file?"
+                @cancel="cancelDelete()"
+                @confirm="deleteOffice()"></ConfirmDialog>
+
+    <div class="bg-red-700 text-white p-4 rounded-lg my-3" v-if="errors.GeneralErrors">
+        {{ errors.GeneralErrors }}
+    </div>
 
     <div class="flex justify-between">
         <h1>List of Offices</h1>
@@ -76,11 +85,14 @@
 <script setup>
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/inertia-vue3'
+import ConfirmDialog from '@/views/components/confirm-dialog.vue';
 
 let toggle = ref('w-[50px]')
 let isHidden = ref('hidden')
 
 let isNew = true;
+
+let showConfirm = ref(false)
 
 let form = useForm({
     name: '',
@@ -88,11 +100,15 @@ let form = useForm({
     user_id: ''
 })
 
+let deleteForm = useForm();
+
 let selectedOffice = null
+let selectedOfficeForDelete = null
 
 let props = defineProps({
     offices: Array,
-    users: Array
+    users: Array,
+    errors: null
 })
 
 let toggleCreate = () => {
@@ -124,7 +140,17 @@ function submit() {
 }
 
 function remove(office) {
+    selectedOfficeForDelete = office
+    showConfirm.value = true;
+}
 
+function cancelDelete() {
+    showConfirm.value = false;
+}
+
+function deleteOffice() {
+    deleteForm.delete('/offices/' + selectedOfficeForDelete.id)
+    showConfirm.value = false;
 }
 
 </script>
